@@ -1,0 +1,29 @@
+{
+  "name": "insta-catalog-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@fastify/cookie": "^11.0.1",
+    "@types/node": "^22.10.2",
+    "prisma": "^6.1.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/jwt": "^9.0.2",
+    "@prisma/client": "^6.1.0",
+    "fastify": "^5.2.0",
+    "fastify-zod": "^1.4.0",
+    "zod": "^3.24.1"
+  }
+}
