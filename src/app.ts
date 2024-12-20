@@ -5,6 +5,8 @@ import { userSchemas } from "./modules/user/user.schema"
 import fastifyJwt from "@fastify/jwt"
 import fastifyCookie from "@fastify/cookie"
 import fastifyCors from "@fastify/cors"
+import { catalogSchemas } from "./modules/catalog/catalog.schema"
+import catalogRoutes from "./modules/catalog/catalog.route"
 
 export const app = fastify()
 
@@ -45,12 +47,16 @@ app.register(fastifyCookie, {
 })
 
 async function main(){
-  for (const schema of userSchemas){
+  for (const schema of [...userSchemas, ...catalogSchemas]){
     app.addSchema(schema)
   }
 
   app.register(userRoutes, { 
     prefix: 'api/users'
+  })
+
+  app.register(catalogRoutes, {
+    prefix: 'api/catalogs'
   })
   
 }

@@ -16,4 +16,7 @@
       "@/*": ["./src/*"]
     }, 
   },
+  "typeRoots": ["./node_modules/@types", "./types"],
+  "declaration": true,
+  "noImplicitAny": true
 }
