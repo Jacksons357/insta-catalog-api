@@ -1,5 +1,5 @@
-import { buildJsonSchemas } from "fastify-zod";
-import z from "zod";
+import { buildJsonSchemas } from 'fastify-zod'
+import z from 'zod'
 
 const catalogInput = {
   title: z.string(),
@@ -7,21 +7,24 @@ const catalogInput = {
 }
 
 const createCatalogSchema = z.object({
-  ...catalogInput
+  ...catalogInput,
 })
 
 const catalogResponseSchema = z.object({
-  ...catalogInput
+  ...catalogInput,
 })
 
 const catalogsResponseSchema = z.array(catalogResponseSchema)
 
 export type CreateCatalogInput = z.infer<typeof createCatalogSchema>
 
-export const { schemas: catalogSchemas, $ref } = buildJsonSchemas({
-  createCatalogSchema,
-  catalogResponseSchema,
-  catalogsResponseSchema
-}, {
-  $id: 'catalogSchemas'
-})
+export const { schemas: catalogSchemas, $ref } = buildJsonSchemas(
+  {
+    createCatalogSchema,
+    catalogResponseSchema,
+    catalogsResponseSchema,
+  },
+  {
+    $id: 'catalogSchemas',
+  }
+)
